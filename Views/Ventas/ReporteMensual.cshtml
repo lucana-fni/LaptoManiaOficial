@@ -1,0 +1,70 @@
+﻿@using System.Globalization;
+@model List<List<LaptoManiaOficial.Models.Venta>>
+
+@{
+    ViewData["Title"] = "ReporteMensual";
+}
+
+<h1>Reporte Mensual</h1>
+
+@for (int mes = 0; mes < Model.Count; mes++)
+{
+    decimal suma = 0;
+    <h2>
+        @CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(mes + 1)
+    </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Fecha
+                </th>
+
+
+
+                <th>
+                    Código Producto
+                </th>
+                <th>
+                    Marca
+                </th>
+                <th>
+                    Modelo
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var venta in Model[mes])
+            {
+                <tr>
+                    <td>
+                        @venta.FechaVenta.ToString("yyyy-MM-dd")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => venta.Equipo.Codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => venta.Equipo.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => venta.Equipo.Modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => venta.Equipo.Precio)
+                        @{
+                            suma += venta.Equipo.Precio;
+                        }
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <div>Total: @suma</div>
+}
+
