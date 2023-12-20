@@ -5,6 +5,10 @@ namespace LaptoManiaOficial.Models
 {
     public class Equipo
     {
+        //actualzar
+        /// <summary>
+        /// norar
+        /// </summary>
         [Key]
         public int Id { get; set; }
         [Required, MinLength(6), MaxLength(10)]

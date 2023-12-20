@@ -27,5 +27,11 @@
 		<Folder Include="wwwroot\fotos\secretarias\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Models\Equipo.cs">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Compile>
+	</ItemGroup>
+
 </Project>
 
