@@ -4,6 +4,12 @@ namespace LaptoManiaOficial.Models
 {
     public class Cliente
     {
+
+        //simatr/
+        //asf
+        /// <summary>
+        /// sdf/
+        /// </summary>
         [Key]
         public int Id { get; set; }
         [Required, MinLength(6), MaxLength(10)]
